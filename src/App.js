@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header/Header'; 
-import Modal from './components/Modal/Modal'
+import Modal from './components/Modal/Modal';
+import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
 
@@ -27,6 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <Modal open={!!this.state.error} title="An Error Occurred" onClose={() => this.errorHandler(null)} ></Modal>
+        <Backdrop show={!!this.state.error} />
         <Header authenticated={this.state.isAuth} onLogout={this.logoutHandler} />
       </div>
     );
