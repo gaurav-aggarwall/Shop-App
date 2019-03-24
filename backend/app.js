@@ -3,10 +3,9 @@ const path = require('path');
 const express = require('express');
 const parser = require('body-parser');
 
-const mongodb = require('mongodb').MongoClient;
-
 const productRoutes = require('./routes/products');
 const authRoutes = require('./routes/auth');
+const db = require('./db');
 
 
 const app = express();
@@ -29,10 +28,11 @@ app.use((req, res, next) => {
 app.use('/products', productRoutes);
 app.use('/', authRoutes);
 
-mongodb.connect("mongodb+srv://gaurav:test1234@shop-project-iemfr.mongodb.net/shop?retryWrites=true")
-.then(client => {
-  console.log(client);
-  client.close();
-}).catch(err => console.log(err));
+db.initDB( (err, db) => {
+  if(err){
+    console.log(err);
+  } else {
+    app.listen(3100, () => console.log('Server stared on 3100 Port'));
+  }
+})
 
-app.listen(3100, () => console.log('Server stared on 3100 Port'));
