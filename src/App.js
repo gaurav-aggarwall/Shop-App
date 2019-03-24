@@ -6,6 +6,7 @@ import Modal from './components/Modal/Modal';
 import Backdrop from './components/Backdrop/Backdrop';
 import ProductsPage from './containers/Product/ProductsPage';
 import ProductPage from './containers/Product/ProductPage';
+import EditProduct from './containers/Product/EditProduct';
 
 import './App.css';
 
@@ -31,6 +32,14 @@ class App extends Component {
     let routes = (
       <Switch>
         <Redirect from="/" to="/products" exact />
+        <Route path="/product/:mode" render={props => (
+            <EditProduct {...props} onError={this.errorHandler} />
+          )}
+        />
+        <Route path="/products/:id/:mode" render={props => (
+            <EditProduct {...props} onError={this.errorHandler} />
+          )}
+        />
         <Route path="/products/:id" render={props => (
             <ProductPage {...props} onError={this.errorHandler} />
           )}
