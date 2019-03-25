@@ -9,7 +9,7 @@ const initDB = callback => {
     if(db){
         return callback(null , db);         //Database is already initialized
     } else {
-        MongoClient.connect(url)
+        MongoClient.connect(url, {useNewUrlParser: true})
         .then(client => {
             db = client;
             callback(null, db);
