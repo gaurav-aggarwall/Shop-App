@@ -59,8 +59,8 @@ class App extends Component {
 
 
   // LOGOUT HANDLER
-  logoutHandler(){
-    this.setState({ isAuth: false });
+  logoutHandler = () => {
+    this.setState({ isAuth: false});
   }
 
 
@@ -110,7 +110,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Modal open={!!this.state.error} title="An Error Occurred" onClose={() => this.errorHandler(null)} ></Modal>
+        <Modal open={!!this.state.error} title="An Error Occurred" onClose={() => this.errorHandler(null)} >{this.state.error}</Modal>
         <Backdrop show={!!this.state.error} />
         <Header authenticated={this.state.isAuth} onLogout={this.logoutHandler} />
         {routes}
