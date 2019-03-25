@@ -18,7 +18,7 @@ class EditProduct extends Component {
     componentDidMount() {
         // Will be "edit" or "add"
         if (this.props.match.params.mode === 'edit') {
-            axios.get('http://localhost:3100/products/' + this.props.match.params.id)
+            axios.get('/products/' + this.props.match.params.id)
             .then(productResponse => {
                 const product = productResponse.data;
                 this.setState({
@@ -57,9 +57,9 @@ class EditProduct extends Component {
         };
         let request;
         if (this.props.match.params.mode === 'edit') {
-            request = axios.patch('http://localhost:3100/products/' + this.props.match.params.id, productData);
+            request = axios.patch('/products/' + this.props.match.params.id, productData);
         } else {
-            request = axios.post('http://localhost:3100/products', productData);
+            request = axios.post('/products', productData);
         }
         request.then(result => {
             this.setState({ isLoading: false });
