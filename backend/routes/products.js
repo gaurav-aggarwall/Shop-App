@@ -12,15 +12,11 @@ const router = Router();
 // Get Products
 router.get('/', (req, res, next) => {   
   const products = [];
-  // const queryPage = req.query.page;
-  // const pageSize = 5;
-  // let resultProducts = [...products];
-  // if (queryPage) {
-  //     resultProducts = products.slice((queryPage - 1) * pageSize,queryPage * pageSize);
-  // }
+  
   db.getDB().db()
   .collection('products')
   .find()
+  .sort({price: -1})
   .forEach(product => {
     product.price = product.price.toString();
     products.push(product);

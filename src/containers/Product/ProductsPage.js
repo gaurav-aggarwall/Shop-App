@@ -10,6 +10,22 @@ class ProductsPage extends Component {
     };
     
     componentDidMount() {
+        this.fetchData();
+    }
+
+    productDeleteHandler = productId => {
+        axios.delete('http://localhost:3100/products/' + productId)
+        .then(result => {
+            this.fetchData();
+            console.log(result);
+        })
+        .catch(err => {
+            this.props.onError('Deleting the product failed. Please try again later');
+            console.log(err);
+        });
+    };
+
+    fetchData = () => {
         axios.get('http://localhost:3100/products')
         .then(productsResponse => {
             this.setState({ isLoading: false, products: productsResponse.data });
@@ -20,17 +36,6 @@ class ProductsPage extends Component {
             console.log(err);
         });
     }
-
-    productDeleteHandler = productId => {
-        axios.delete('http://localhost:3100/products/' + productId)
-        .then(result => {
-            console.log(result);
-        })
-        .catch(err => {
-            this.props.onError('Deleting the product failed. Please try again later');
-            console.log(err);
-        });
-    };
 
     render() {
         let content = <p>Loading products...</p>;
