@@ -29,6 +29,7 @@ class AuthPage extends Component {
                         email: this.state.email,
                         password: this.state.password
                     })}>
+                    <h1>Login / SignUp</h1>
                     <Input label="E-Mail" config={{ type: 'email' }} onChange={event => this.inputChangeHandler(event, 'email')} />
                     <Input label="Password" config={{ type: 'password' }} onChange={event => this.inputChangeHandler(event, 'password')} />
                     <Button type="submit">{submitButtonText}</Button>

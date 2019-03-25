@@ -11,6 +11,12 @@
     margin: auto;
 }
 
+.auth__form h1 {
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
 .auth__mode-control {
     text-align: center;
     margin: 1rem;
