@@ -22,7 +22,7 @@ class ProductPage extends Component {
     }
 
     render() {
-        let content = <p>Is loading...</p>;
+        let content = <p className="Error-msgs">Is loading...</p>;
 
         if (!this.state.isLoading && this.state.product) {
             content = (
@@ -42,7 +42,7 @@ class ProductPage extends Component {
         if (!this.state.isLoading && !this.state.product) {
             content = (
             <main>
-                <p>Found no product. Try again later.</p>
+                <p className="Error-msgs">No product found. Try again later.</p>
             </main>
             );
         }

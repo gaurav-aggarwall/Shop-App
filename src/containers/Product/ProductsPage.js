@@ -17,7 +17,6 @@ class ProductsPage extends Component {
         axios.delete('http://localhost:3100/products/' + productId)
         .then(result => {
             this.fetchData();
-            console.log(result);
         })
         .catch(err => {
             this.props.onError('Deleting the product failed. Please try again later');
@@ -44,7 +43,7 @@ class ProductsPage extends Component {
             content = <Products products={this.state.products}  onDeleteProduct={this.productDeleteHandler} /> ;
         }
         if (!this.state.isLoading && this.state.products.length === 0) {
-            content = <p>Found no products. Try again later.</p>;
+            content = <p className="Error-msgs">No products found. Try again later.</p>;
         }
         return <main>{content}</main>;
     }

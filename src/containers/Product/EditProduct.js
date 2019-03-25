@@ -79,6 +79,7 @@ class EditProduct extends Component {
     render() {
         let content = (
             <form className="edit-product__form" onSubmit={this.editProductHandler}>
+                <h1>Add a New Product</h1>
                 <Input
                     label="Title"
                     config={{ type: 'text', value: this.state.title }}

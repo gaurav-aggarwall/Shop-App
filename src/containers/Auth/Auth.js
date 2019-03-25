@@ -23,12 +23,7 @@ class AuthPage extends Component {
             submitButtonText = 'Signup';
         }
         return (
-            <main>
-                <section className="auth__mode-control">
-                    <Button type="button" onClick={this.props.onAuthModeChange}>
-                        {modeButtonText}
-                    </Button>
-                </section>
+            <main className="auth-main">
                 <form className="auth__form" onSubmit={event =>
                     this.props.onAuth(event, {
                         email: this.state.email,
@@ -38,6 +33,11 @@ class AuthPage extends Component {
                     <Input label="Password" config={{ type: 'password' }} onChange={event => this.inputChangeHandler(event, 'password')} />
                     <Button type="submit">{submitButtonText}</Button>
                 </form>
+                <section className="auth__mode-control">
+                    <Button type="button" onClick={this.props.onAuthModeChange}>
+                        {modeButtonText}
+                    </Button>
+                </section>
             </main>
         );
     }

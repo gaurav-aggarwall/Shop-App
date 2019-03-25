@@ -1,3 +1,11 @@
+.auth-main{
+    width: 90%;
+    margin: 4rem auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    padding-bottom: 3rem;
+}
+
 .auth__form {
     width: 90%;
     margin: auto;
@@ -9,6 +17,13 @@
 }
 
 @media (min-width: 768px) {
+    .auth-main{
+        width: 90%;
+        margin: 4rem auto;
+        padding: 1rem;
+        padding-bottom: 3rem;
+    }
+    
     .auth__form {
         width: 40rem;
     }

@@ -12,7 +12,7 @@ import AuthPage from './containers/Auth/Auth';
 
 class App extends Component {
   state = {
-    isAuth: true,
+    isAuth: false,
     authMode: 'login',
     error: null
   };
